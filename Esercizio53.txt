@@ -1,0 +1,58 @@
+es 1
+SELECT count(*) as TotalOrders
+  FROM [northwind].[dbo].[Orders]
+
+es 2
+SELECT count(*) as TotalCustomer
+  FROM [northwind].[dbo].[Customers]
+
+es 3
+SELECT  count(*)
+  FROM [northwind].[dbo].[Customers]
+  where City = 'London'
+
+es 4
+SELECT Avg(Freight)
+  FROM [northwind].[dbo].[Orders]
+
+es 5
+SELECT Avg(Freight)
+  FROM [northwind].[dbo].[Orders]
+  where CustomerID = 'BOTTM'
+
+es 6
+SELECT CustomerID, sum(Freight)
+  FROM [northwind].[dbo].[Orders]
+  group by CustomerID
+
+es 7
+SELECT  City, count(CustomerID) as nCustomer
+  FROM [northwind].[dbo].[Customers]
+  group by City
+
+es 8
+SELECT OrderID, sum(UnitPrice * Quantity) as Total
+  FROM [northwind].[dbo].[Order Details]
+  group by OrderID
+
+es 9
+SELECT OrderID, sum(UnitPrice * Quantity) 
+as Total
+  FROM [northwind].[dbo].[Order Details]
+  group by OrderID
+  having OrderID = 10248
+
+es 10
+SELECT count(CategoryID) as ProdottiComprati
+  FROM [northwind].[dbo].[Products]
+  group by CategoryID
+
+es 11
+SELECT ShipCountry, count (*) as nOrder
+  FROM [northwind].[dbo].[Orders]
+  group by ShipCountry
+
+es 12
+SELECT ShipCountry, avg(Freight) as AvgCost
+  FROM [northwind].[dbo].[Orders]
+  group by ShipCountry
